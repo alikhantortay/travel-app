@@ -12,7 +12,7 @@ export default function AviaOfferDetailScreen() {
       <View style={styles.center}>
         <Text style={styles.errorIcon}>✈️</Text>
         <Text style={styles.errorText}>Билет не найден</Text>
-        <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
+        <TouchableOpacity style={styles.backBtn} onPress={() => router.push('/(tabs)/avia' as any)}>
           <Text style={styles.backBtnText}>Вернуться к поиску</Text>
         </TouchableOpacity>
       </View>

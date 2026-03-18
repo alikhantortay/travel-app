@@ -33,7 +33,7 @@ export default function OrderDetailScreen() {
       <View style={styles.center}>
         <Text style={styles.emptyIcon}>🔍</Text>
         <Text style={styles.notFound}>Заказ не найден</Text>
-        <TouchableOpacity style={styles.backBtnOutline} onPress={() => router.back()}>
+        <TouchableOpacity style={styles.backBtnOutline} onPress={() => router.push('/(tabs)/railway' as any)}>
           <Text style={styles.backBtnOutlineText}>Вернуться назад</Text>
         </TouchableOpacity>
       </View>
@@ -121,8 +121,8 @@ export default function OrderDetailScreen() {
           </TouchableOpacity>
         )}
 
-        <TouchableOpacity activeOpacity={0.7} style={styles.backBtn} onPress={() => router.back()}>
-          <Text style={styles.backBtnText}>Вернуться к списку заказов</Text>
+        <TouchableOpacity activeOpacity={0.7} style={styles.backBtn} onPress={() => router.push('/(tabs)/railway' as any)}>
+          <Text style={styles.backBtnText}>Вернуться к поиску ЖД</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

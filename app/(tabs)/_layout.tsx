@@ -8,7 +8,6 @@ function TopTabBar({ state, descriptors, navigation }: any) {
 
   return (
     <View style={[styles.tabBarContainer, { paddingTop: Math.max(insets.top, 20) }]}>
-      <Text style={styles.logoText}>MydalaTravel</Text>
       <View style={styles.tabsRow}>
         {state.routes.map((route: any, index: number) => {
           const { options } = descriptors[route.key];
