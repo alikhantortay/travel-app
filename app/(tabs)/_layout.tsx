@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from 'expo-router';
-import { View, Text, TouchableOpacity, StyleSheet, Platform } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 function TopTabBar({ state, descriptors, navigation }: any) {
@@ -8,7 +8,11 @@ function TopTabBar({ state, descriptors, navigation }: any) {
 
   return (
     <View style={[styles.tabBarContainer, { paddingTop: Math.max(insets.top, 20) }]}>
-      <View style={styles.tabsRow}>
+      <ScrollView 
+        horizontal 
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.tabsRow}
+      >
         {state.routes.map((route: any, index: number) => {
           const { options } = descriptors[route.key];
           
@@ -65,7 +69,7 @@ function TopTabBar({ state, descriptors, navigation }: any) {
             </TouchableOpacity>
           );
         })}
-      </View>
+      </ScrollView>
     </View>
   );
 }
@@ -107,7 +111,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderBottomWidth: 1,
     borderBottomColor: '#f1f5f9',
-    paddingHorizontal: 20,
     paddingBottom: 10,
     ...Platform.select({
       ios: { shadowColor: '#1a56db', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.05, shadowRadius: 10 },
@@ -125,6 +128,7 @@ const styles = StyleSheet.create({
   tabsRow: {
     flexDirection: 'row',
     gap: 12,
+    paddingHorizontal: 20,
   },
   tabButton: {
     paddingVertical: 8,
